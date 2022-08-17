@@ -28,7 +28,7 @@ describe('empty spec', () => {
     // user click serach button
     cy.get('#search_form > .btn').click()
 
-
+    // to verify that user on listing page, check there is action text on table 
     cy.get('thead > tr > :nth-child(7)').should('have.text', 'Action')
 
 
