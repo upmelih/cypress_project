@@ -35,8 +35,9 @@ describe('empty spec', () => {
     cy.get(LOCATORS.usercardnumber).type('87654672319')
     // user provide valid email  adress : "melihseyhan@gmail.com"
     cy.get(LOCATORS.useremail).type('melihseyhan@gmail.com')
-    //user click rent button for reservertion
+    //user click rent button for reservation
     //cy.get('.btn').click()
+    
     /*
     command out last cliclking action above because,
     user got 404 status code and wont be able to proceed 

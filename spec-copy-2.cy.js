@@ -10,9 +10,11 @@ describe('empty spec', () => {
       dropoffdate:'[id="dropoff"]'
     }
 
-    // First user story
+
+    // Forth user story
     //user goes to "http://qalab.pl.tivixlabs.com/"
     cy.visit('http://qalab.pl.tivixlabs.com/')
+
 
     // user select Caountry as France
     cy.get(LOCATORS.country).select('France').should('have.value', '3')
@@ -22,17 +24,16 @@ describe('empty spec', () => {
     cy.get(LOCATORS.model).type('Toyota')
     //user enter pickup date as "2022-08-20"
     cy.get(LOCATORS.pickupdate).type('2022-08-20')
-    //user enter dropoff date as "2022-08-22"
-    cy.get(LOCATORS.dropoffdate).type('2022-08-22')
+    //user enter dropoff date as "2022-08-08" 
+    //made mistake of selecting  dropoff date before pickupdate
+    cy.get(LOCATORS.dropoffdate).type('2022-08-08')
 
-    
     // user click serach button
     cy.get('#search_form > .btn').click()
-
-    // to verify that user on listing page, check there is action text on table 
-    cy.get('thead > tr > :nth-child(7)').should('have.text', 'Action')
-
     
+    //user wont be able to see list of rental car
+    // to verify that ,check the text is "Please enter a valid date!"
+    cy.get('.alert').should('have.text', 'Please enter a valid date!')
 
   })
 })
